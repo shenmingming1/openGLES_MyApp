@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		371EEF2F21088253004E119E /* vertexbuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371EEF2D21088253004E119E /* vertexbuffer.cpp */; };
 		371EEF32210882CB004E119E /* ground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371EEF30210882CB004E119E /* ground.cpp */; };
+		371EEF572109B1E5004E119E /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371EEF562109B1E5004E119E /* shader.cpp */; };
+		371EEF5A2109EA48004E119E /* model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371EEF582109EA47004E119E /* model.cpp */; };
 		37AD04F021081DC8006D9121 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD04EF21081DC8006D9121 /* AppDelegate.m */; };
 		37AD04F321081DC8006D9121 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37AD04F221081DC8006D9121 /* ViewController.mm */; };
 		37AD04F621081DC8006D9121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37AD04F421081DC8006D9121 /* Main.storyboard */; };
@@ -153,6 +155,10 @@
 		371EEF2E21088253004E119E /* vertexbuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vertexbuffer.hpp; sourceTree = "<group>"; };
 		371EEF30210882CB004E119E /* ground.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ground.cpp; sourceTree = "<group>"; };
 		371EEF31210882CB004E119E /* ground.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ground.hpp; sourceTree = "<group>"; };
+		371EEF552109B1E4004E119E /* shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shader.h; sourceTree = "<group>"; };
+		371EEF562109B1E5004E119E /* shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
+		371EEF582109EA47004E119E /* model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = model.cpp; sourceTree = "<group>"; };
+		371EEF592109EA48004E119E /* model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = model.h; sourceTree = "<group>"; };
 		37AD04EB21081DC8006D9121 /* openGLES_MyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openGLES_MyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37AD04EE21081DC8006D9121 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		37AD04EF21081DC8006D9121 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -458,7 +464,11 @@
 				371EEF30210882CB004E119E /* ground.cpp */,
 				371EEF31210882CB004E119E /* ground.hpp */,
 				37AD0687210822C2006D9121 /* scene.cpp */,
+				371EEF582109EA47004E119E /* model.cpp */,
+				371EEF592109EA48004E119E /* model.h */,
 				37AD068921082355006D9121 /* ggl.h */,
+				371EEF562109B1E5004E119E /* shader.cpp */,
+				371EEF552109B1E4004E119E /* shader.h */,
 				37AD0686210822C2006D9121 /* scene.h */,
 				37AD05082108228C006D9121 /* utils.h */,
 				37AD05072108228C006D9121 /* utils.cpp */,
@@ -981,7 +991,9 @@
 				37AD04F321081DC8006D9121 /* ViewController.mm in Sources */,
 				371EEF2F21088253004E119E /* vertexbuffer.cpp in Sources */,
 				371EEF32210882CB004E119E /* ground.cpp in Sources */,
+				371EEF572109B1E5004E119E /* shader.cpp in Sources */,
 				37AD04FE21081DCB006D9121 /* main.m in Sources */,
+				371EEF5A2109EA48004E119E /* model.cpp in Sources */,
 				37AD04F021081DC8006D9121 /* AppDelegate.m in Sources */,
 				37AD0632210822A4006D9121 /* dummy.cpp in Sources */,
 				37AD0688210822C2006D9121 /* scene.cpp in Sources */,

@@ -9,28 +9,28 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "openGLES_MyApp/scene.cpp"
-            timestampString = "554205430.0254411"
+            filePath = "openGLES_MyApp/utils.cpp"
+            timestampString = "554300734.645774"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "Init()"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "CreateTexture2D(unsigned char*pixelData, int width, int height, GLenum type)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "openGLES_MyApp/scene.cpp"
-            timestampString = "554205430.025805"
+            timestampString = "554300734.645905"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "Draw()"
             landmarkType = "9">
          </BreakpointContent>
@@ -42,28 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "openGLES_MyApp/scene.cpp"
-            timestampString = "554205430.026026"
+            timestampString = "554300734.646701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
             endingLineNumber = "41"
             landmarkName = "Init()"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "openGLES_MyApp/utils.cpp"
-            timestampString = "554205430.02624"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "CreateTexture2D(unsigned char*pixelData, int width, int height, GLenum type)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

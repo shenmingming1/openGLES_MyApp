@@ -2,33 +2,62 @@
 #include "utils.h"
 
 //#include "skybox.h"
-//#include "ground.h"
+#include "ground.hpp"
 //#include "vertexbuffer.h"
-//#include "shader.h"
-//#include "model.h"
+#include "shader.h"
+#include "model.h"
 //#include "particlesystem.h"
 GLuint vbo,ebo;
 GLuint program;
 GLuint texture;
 GLint texcoordLocation,textureLocation;
 GLint positionLocation,modelMatrixLocation,viewMatrixLocation,projectionMatrixLocation,colorLocation;
-
+VertexBuffer* vertextBuffer;
+Shader* shader;
 glm::mat4 projectionMatrix, viewMatrix,modelMatrix;
-
+Ground ground;
+Model model;
 void Init() {
+    ground.Init();
+    model.Init("Sphere.obj");
+    model.SetPosition(0.0f, 0.0f, -5.0f);
+//    model.SetTexture("earth.bmp");
+/*使用vertexBuffer画三角形
+    vertextBuffer = new VertexBuffer;
+    vertextBuffer-> SetSize(4);
+    vertextBuffer->SetPosition(0, -0.2f, -0.2f, 0.0f);
+    vertextBuffer->SetTexcoord(0, 0.0f, 0.0f);
+    vertextBuffer->SetColor(0, 1.0f, 1.0f, 1.0f);
+    vertextBuffer->SetPosition(1, 0.2f, -0.2f, 0.0f);
+    vertextBuffer->SetTexcoord(1, 1.0f, 0.0f);
+    vertextBuffer->SetColor(1, 0.0f, 1.0f, 0.0f);
+    vertextBuffer->SetPosition(2, -0.2f, 0.2f, 0.0f);
+    vertextBuffer->SetTexcoord(2, 0.0f, 1.0f);
+    vertextBuffer->SetColor(2, 1.0f, 1.0f, 1.0f);
+    vertextBuffer->SetPosition(3, 0.2f, 0.2f, 0.0f);
+    vertextBuffer->SetTexcoord(3, 1.0f, 1.0f);
+    vertextBuffer->SetColor(3, 1.0f, 0.0f, 0.0f);
+    shader = new Shader;
+    shader->Init("test.vs", "test.fs");
+    shader->SetTexture("U_Texture", "test.bmp");
+    shader->SetTexture("U_Texture2", "niutou.bmp");
+   */
+    
+    /*最初画三角形
     float data[] = {
         -0.2f,-0.2f,0.0f,1.0f,1.0f,1.0f,1.0f,1.0f,0.0f,0.0f,
         0.2f,-0.2f,0.0f,1.0f,0.0f,1.0f,0.0f,1.0f,1.0f,0.0f,
-        0.0f,0.2f,0.0f,1.0f,1.0f,0.0f,0.0f,1.0f,0.5f,1.0f
+        -0.2f,0.2f,0.0f,1.0f,0.0f,1.0f,1.0f,1.0f,0.0f,1.0f,
+        0.2f,0.2f,0.0f,1.0f,1.0f,0.0f,0.0f,1.0f,1.0f,1.0f
     };
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(float)*30, data, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float)*40, data, GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    unsigned short indexes[]={0,1,2};
+    unsigned short indexes[]={0,1,2,3};
     glGenBuffers(1,&ebo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned short)*3, indexes, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned short)*4, indexes, GL_STATIC_DRAW);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     int fileSize = 0;
     GLuint vsShader = CompileShader(GL_VERTEX_SHADER, "test.vs");
@@ -44,7 +73,11 @@ void Init() {
     projectionMatrixLocation = glGetUniformLocation(program, "ProjectionMatrix");
     textureLocation = glGetUniformLocation(program, "U_Texture");
     modelMatrix = glm::translate(0.0f, 0.0f, -0.6f);
-    texture = CreateTexture2DFromBMP("niutou.bmp");
+    viewMatrix = glm::rotate(60.0, 0.0, 0.0, 1.0);
+    scale(0 .5,0.5 , 1.0);
+    texture = CreateTexture2DFromBMP("test.bmp");
+  */
+
 } 
 void SetViewPortSize(float width, float height) {
 	projectionMatrix = glm::perspective(60.0f, width / height, 0.1f, 1000.0f);
@@ -53,27 +86,40 @@ void SetViewPortSize(float width, float height) {
 void Draw() {
     glClearColor(0.1f, 0.4f, 0.6f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    ground.Draw(viewMatrix, projectionMatrix);
+    model.Draw(0.0f, 1.0f, 0.0f, viewMatrix, projectionMatrix);
+ /*用vertextBuffer画三角形
+    vertextBuffer->Bind();
+    shader->Bind(glm::value_ptr(modelMatrix), glm::value_ptr(viewMatrix), glm::value_ptr(projectionMatrix));
+//    glBindTexture(GL_TEXTURE_2D, texture);
+//    glUniform1i(textureLocation, 0);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    vertextBuffer->Unbind();
+  */
+    /* 
+
     float frameTime = GetFrameTime();
     glUseProgram(program);
     glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, glm::value_ptr(modelMatrix));//1 为1个矩阵数组，GL_FALSE不需要转置 glm::value_ptr(modelMatrix)数据的起始地址
     glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, glm::value_ptr(viewMatrix));
     glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
-    glBindBuffer(GL_TEXTURE_2D, texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
     glUniform1i(textureLocation, 0);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glEnableVertexAttribArray(positionLocation);
     glVertexAttribPointer(positionLocation, 4, GL_FLOAT, GL_FALSE, sizeof(float)*10, 0);
     glEnableVertexAttribArray(colorLocation);
-    glVertexAttribPointer(colorLocation, 4, GL_FLOAT, GL_FALSE, sizeof(float)*10, (void*)(sizeof(float)*4)); 
-    
+    glVertexAttribPointer(colorLocation, 4, GL_FLOAT, GL_FALSE, sizeof(float)*10, (void*)(sizeof(float)*4));
+
     glEnableVertexAttribArray(texcoordLocation);
     glVertexAttribPointer(texcoordLocation,2, GL_FLOAT, GL_FALSE, sizeof(float)*10, (void*)(sizeof(float)*8));
-    
+
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-    glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_SHORT,0);
+    glDrawElements(GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_SHORT,0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 //    glDrawArrays(GL_TRIANGLES, 0, 3);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glUseProgram(0);
-	
+    
+	*/
 }

@@ -4,11 +4,7 @@
 //
 //  Created by 58 on 2018/7/25.
 //  Copyright © 2018年 58. All rights reserved.
-//
-
-#ifndef vertexbuffer_hpp
-#define vertexbuffer_hpp
-
+#pragma once
 #include "ggl.h"
 struct Vertex{
     float Position[4];
@@ -16,4 +12,17 @@ struct Vertex{
     float Texcoord[4];
     float Normal[4];
 };
-#endif /* vertexbuffer_hpp */
+class VertexBuffer {
+public:
+    GLuint mVBO;
+    Vertex *mVertexes;
+    int mVertexCount;
+    void SetSize(int vertexCount);
+    void SetPosition(int index, float x, float y, float z, float w = 1.0f);
+    void Bind();
+    void Unbind();
+    void SetColor(int index, float r, float g, float b, float a=1.0);
+    void SetTexcoord(int index, float x, float y);
+    void SetNormal(int index, float x, float y, float z);
+    Vertex&Get(int index);
+};
