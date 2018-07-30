@@ -48,6 +48,7 @@ float GetFrameTime(){
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     [EAGLContext setCurrentContext:self.context];
     [self initScene];
+
 }
 -(void)initScene
 {

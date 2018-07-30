@@ -17,7 +17,7 @@ vec4 GetPointLight()
 	L=normalize(L);
 	vec3 n=normalize(V_Normal);
 	float diffuseIntensity=max(0.0,dot(L,n));
-	vec4 diffuseColor=vec4(1.0,1.0,1.0,1.0)*vec4(0.1,0.4,0.6,1.0)*diffuseIntensity*attenuation;
+	vec4 diffuseColor=vec4(1.0,1.0,1.0,1.0)*vec4(0.1,0.4,0.6,1.0)*diffuseIntensity*attenuation*4.0;
 	return ambientColor+diffuseColor;
 }
 void main()

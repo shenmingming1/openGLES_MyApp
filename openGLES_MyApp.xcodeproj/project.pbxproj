@@ -11,6 +11,9 @@
 		371EEF32210882CB004E119E /* ground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371EEF30210882CB004E119E /* ground.cpp */; };
 		371EEF572109B1E5004E119E /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371EEF562109B1E5004E119E /* shader.cpp */; };
 		371EEF5A2109EA48004E119E /* model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371EEF582109EA47004E119E /* model.cpp */; };
+		37503248210C4F4D00DCEA24 /* modeltest.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37503246210C4F4D00DCEA24 /* modeltest.fs */; };
+		37503249210C4F4D00DCEA24 /* modeltest.vs in Resources */ = {isa = PBXBuildFile; fileRef = 37503247210C4F4D00DCEA24 /* modeltest.vs */; };
+		3750324C210D5A7300DCEA24 /* skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3750324A210D5A7200DCEA24 /* skybox.cpp */; };
 		37AD04F021081DC8006D9121 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD04EF21081DC8006D9121 /* AppDelegate.m */; };
 		37AD04F321081DC8006D9121 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37AD04F221081DC8006D9121 /* ViewController.mm */; };
 		37AD04F621081DC8006D9121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37AD04F421081DC8006D9121 /* Main.storyboard */; };
@@ -159,6 +162,10 @@
 		371EEF562109B1E5004E119E /* shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
 		371EEF582109EA47004E119E /* model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = model.cpp; sourceTree = "<group>"; };
 		371EEF592109EA48004E119E /* model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = model.h; sourceTree = "<group>"; };
+		37503246210C4F4D00DCEA24 /* modeltest.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = modeltest.fs; sourceTree = "<group>"; };
+		37503247210C4F4D00DCEA24 /* modeltest.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = modeltest.vs; sourceTree = "<group>"; };
+		3750324A210D5A7200DCEA24 /* skybox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = skybox.cpp; sourceTree = "<group>"; };
+		3750324B210D5A7300DCEA24 /* skybox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skybox.h; sourceTree = "<group>"; };
 		37AD04EB21081DC8006D9121 /* openGLES_MyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openGLES_MyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37AD04EE21081DC8006D9121 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		37AD04EF21081DC8006D9121 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -439,6 +446,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37503245210C4F2400DCEA24 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				37503246210C4F4D00DCEA24 /* modeltest.fs */,
+				37503247210C4F4D00DCEA24 /* modeltest.vs */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
 		37AD04E221081DC8006D9121 = {
 			isa = PBXGroup;
 			children = (
@@ -459,17 +475,20 @@
 		37AD04ED21081DC8006D9121 /* openGLES_MyApp */ = {
 			isa = PBXGroup;
 			children = (
+				37503245210C4F2400DCEA24 /* test */,
 				37AD0522210822A3006D9121 /* Glm */,
 				37AD050A210822A3006D9121 /* Res */,
-				371EEF30210882CB004E119E /* ground.cpp */,
-				371EEF31210882CB004E119E /* ground.hpp */,
+				37AD0686210822C2006D9121 /* scene.h */,
 				37AD0687210822C2006D9121 /* scene.cpp */,
+				3750324A210D5A7200DCEA24 /* skybox.cpp */,
+				3750324B210D5A7300DCEA24 /* skybox.h */,
+				371EEF31210882CB004E119E /* ground.hpp */,
+				371EEF30210882CB004E119E /* ground.cpp */,
 				371EEF582109EA47004E119E /* model.cpp */,
 				371EEF592109EA48004E119E /* model.h */,
 				37AD068921082355006D9121 /* ggl.h */,
 				371EEF562109B1E5004E119E /* shader.cpp */,
 				371EEF552109B1E4004E119E /* shader.h */,
-				37AD0686210822C2006D9121 /* scene.h */,
 				37AD05082108228C006D9121 /* utils.h */,
 				37AD05072108228C006D9121 /* utils.cpp */,
 				37AD04EE21081DC8006D9121 /* AppDelegate.h */,
@@ -500,6 +519,7 @@
 			children = (
 				37AD050B210822A3006D9121 /* ground.fs */,
 				37AD050C210822A3006D9121 /* skybox.vs */,
+				37AD051E210822A3006D9121 /* skybox.fs */,
 				37AD050D210822A3006D9121 /* left.bmp */,
 				37AD050E210822A3006D9121 /* test.bmp */,
 				37AD050F210822A3006D9121 /* top.bmp */,
@@ -517,7 +537,6 @@
 				37AD051B210822A3006D9121 /* texture.vs */,
 				37AD051C210822A3006D9121 /* particle.vs */,
 				37AD051D210822A3006D9121 /* ground.vs */,
-				37AD051E210822A3006D9121 /* skybox.fs */,
 				37AD051F210822A3006D9121 /* earth.bmp */,
 				37AD0520210822A3006D9121 /* Quad.obj */,
 				37AD0521210822A3006D9121 /* bottom.bmp */,
@@ -880,6 +899,7 @@
 				37AD065F210822A4006D9121 /* bit.inl in Resources */,
 				37AD0679210822A4006D9121 /* unsigned_int.inl in Resources */,
 				37AD0658210822A4006D9121 /* ocl_type.inl in Resources */,
+				37503249210C4F4D00DCEA24 /* modeltest.vs in Resources */,
 				37AD065C210822A4006D9121 /* number_precision.inl in Resources */,
 				37AD0660210822A4006D9121 /* fast_trigonometry.inl in Resources */,
 				37AD0628210822A4006D9121 /* intrinsic_vector_relational.inl in Resources */,
@@ -959,6 +979,7 @@
 				37AD062D210822A4006D9121 /* type_mat2x4.inl in Resources */,
 				37AD060E210822A4006D9121 /* back.bmp in Resources */,
 				37AD0653210822A4006D9121 /* quaternion.inl in Resources */,
+				37503248210C4F4D00DCEA24 /* modeltest.fs in Resources */,
 				37AD0612210822A4006D9121 /* texture.fs in Resources */,
 				37AD0647210822A4006D9121 /* epsilon.inl in Resources */,
 				37AD0624210822A4006D9121 /* type_half.inl in Resources */,
@@ -992,6 +1013,7 @@
 				371EEF2F21088253004E119E /* vertexbuffer.cpp in Sources */,
 				371EEF32210882CB004E119E /* ground.cpp in Sources */,
 				371EEF572109B1E5004E119E /* shader.cpp in Sources */,
+				3750324C210D5A7300DCEA24 /* skybox.cpp in Sources */,
 				37AD04FE21081DCB006D9121 /* main.m in Sources */,
 				371EEF5A2109EA48004E119E /* model.cpp in Sources */,
 				37AD04F021081DC8006D9121 /* AppDelegate.m in Sources */,

@@ -1,7 +1,7 @@
 #include "scene.h"
 #include "utils.h"
 
-//#include "skybox.h"
+#include "skybox.h"
 #include "ground.hpp"
 //#include "vertexbuffer.h"
 #include "shader.h"
@@ -16,12 +16,20 @@ VertexBuffer* vertextBuffer;
 Shader* shader;
 glm::mat4 projectionMatrix, viewMatrix,modelMatrix;
 Ground ground;
-Model model;
+Model model,niutou;
+glm::vec3 cameraPos(10.0f,10.0f,10.0f);
+SkyBox skybox;
 void Init() {
+    viewMatrix = glm::lookAt(cameraPos, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0,1.0f,0.0f));//glm::mat4 mat = glm::LookAt(CameraPos, CameraTarget, upVector);cameraPos,相机的位置，CameraTarget相机看向的方向，相机头的朝向
+
+    skybox.Init("Res");
     ground.Init();
     model.Init("Sphere.obj");
-    model.SetPosition(0.0f, 0.0f, -5.0f);
-//    model.SetTexture("earth.bmp");
+    model.SetPosition(0.0, 0.0, 0.0f);
+    model.SetTexture("earth.bmp");
+    niutou.Init("niutou.obj");
+    niutou.mModelMatrix=glm::translate(-5.0f, 0.0f, 4.0f)*glm::scale(0.05f, 0.05f, 0.05f);
+    niutou.SetTexture("niutou.bmp");
 /*使用vertexBuffer画三角形
     vertextBuffer = new VertexBuffer;
     vertextBuffer-> SetSize(4);
@@ -84,10 +92,12 @@ void SetViewPortSize(float width, float height) {
     // 60.0f 为视角  0.1f,最近看到的距离，1000.0f最远看到的距离
 }
 void Draw() {
-    glClearColor(0.1f, 0.4f, 0.6f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    skybox.Draw(cameraPos.x, cameraPos.y, cameraPos.z, viewMatrix, projectionMatrix);
     ground.Draw(viewMatrix, projectionMatrix);
-    model.Draw(0.0f, 1.0f, 0.0f, viewMatrix, projectionMatrix);
+    model.Draw(cameraPos.x, cameraPos.y, cameraPos.y, viewMatrix, projectionMatrix);
+    niutou.Draw(cameraPos.x, cameraPos.y, cameraPos.z, viewMatrix, projectionMatrix);
  /*用vertextBuffer画三角形
     vertextBuffer->Bind();
     shader->Bind(glm::value_ptr(modelMatrix), glm::value_ptr(viewMatrix), glm::value_ptr(projectionMatrix));

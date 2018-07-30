@@ -38,6 +38,11 @@ void Ground::Init() {
     }
     mShader = new Shader;
     mShader->Init("ground.vs", "ground.fs");
+    mShader->SetVec4("U_LightPos", 0.0f, 0.0f, 1.0f, 0.0f);//光源位置
+    mShader->SetVec4("U_LightAmbient", 1.0f, 1.0f, 1.0f, 1.0f);//环境光
+    mShader->SetVec4("U_LightDiffuse", 1.0f, 1.0f, 1.0f, 1.0f);//光源漫反射光的分量
+    SetAmbientMaterial(0.1f, 0.1f, 0.1f, 1.0f);//材质
+    SetDiffuseMaterial(0.6f, 0.6f, 0.6f, 1.0f);//材质对漫反射光的系数
 }
 void Ground::Draw(glm::mat4 & viewMatrix, glm::mat4 & projectionMatrix) {
     glEnable(GL_DEPTH_TEST);
