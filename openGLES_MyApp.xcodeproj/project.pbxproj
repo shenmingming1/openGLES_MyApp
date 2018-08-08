@@ -14,6 +14,7 @@
 		37503248210C4F4D00DCEA24 /* modeltest.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37503246210C4F4D00DCEA24 /* modeltest.fs */; };
 		37503249210C4F4D00DCEA24 /* modeltest.vs in Resources */ = {isa = PBXBuildFile; fileRef = 37503247210C4F4D00DCEA24 /* modeltest.vs */; };
 		3750324C210D5A7300DCEA24 /* skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3750324A210D5A7200DCEA24 /* skybox.cpp */; };
+		376CF3A72112FD0300EF25B1 /* fsq.vs in Resources */ = {isa = PBXBuildFile; fileRef = 376CF3A62112FD0300EF25B1 /* fsq.vs */; };
 		37AD04F021081DC8006D9121 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD04EF21081DC8006D9121 /* AppDelegate.m */; };
 		37AD04F321081DC8006D9121 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37AD04F221081DC8006D9121 /* ViewController.mm */; };
 		37AD04F621081DC8006D9121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37AD04F421081DC8006D9121 /* Main.storyboard */; };
@@ -166,6 +167,7 @@
 		37503247210C4F4D00DCEA24 /* modeltest.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = modeltest.vs; sourceTree = "<group>"; };
 		3750324A210D5A7200DCEA24 /* skybox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = skybox.cpp; sourceTree = "<group>"; };
 		3750324B210D5A7300DCEA24 /* skybox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skybox.h; sourceTree = "<group>"; };
+		376CF3A62112FD0300EF25B1 /* fsq.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = fsq.vs; sourceTree = "<group>"; };
 		37AD04EB21081DC8006D9121 /* openGLES_MyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openGLES_MyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37AD04EE21081DC8006D9121 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		37AD04EF21081DC8006D9121 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 				37AD0521210822A3006D9121 /* bottom.bmp */,
 				37AD068A21082753006D9121 /* test.vs */,
 				37AD068C21082768006D9121 /* test.fs */,
+				376CF3A62112FD0300EF25B1 /* fsq.vs */,
 			);
 			path = Res;
 			sourceTree = "<group>";
@@ -875,6 +878,7 @@
 				37AD0651210822A4006D9121 /* extend.inl in Resources */,
 				37AD0671210822A4006D9121 /* std_based_type.inl in Resources */,
 				37AD0677210822A4006D9121 /* extented_min_max.inl in Resources */,
+				376CF3A72112FD0300EF25B1 /* fsq.vs in Resources */,
 				37AD0674210822A4006D9121 /* matrix_operation.inl in Resources */,
 				37AD0610210822A4006D9121 /* right.bmp in Resources */,
 				37AD0626210822A4006D9121 /* intrinsic_geometric.inl in Resources */,

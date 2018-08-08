@@ -21,6 +21,7 @@ void main()
     color = ambientColor;
     vec3 lightPos=U_LightPos.xyz;
     vec3 L=lightPos;
+    L=normalize(L);
     vec3 n=normalize(V_Normal.xyz);
     float diffuseIntensity=max(0.0,dot(L,n));
     vec4 diffuseColor=U_LightDiffuse*U_DiffuseMaterial*diffuseIntensity;
