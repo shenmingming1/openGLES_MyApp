@@ -17,6 +17,9 @@
 		37358243211D379A0042EDD3 /* fullscreenquad.vs in Resources */ = {isa = PBXBuildFile; fileRef = 37358242211D379A0042EDD3 /* fullscreenquad.vs */; };
 		37358245211D397B0042EDD3 /* fullscreenquad.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37358244211D397B0042EDD3 /* fullscreenquad.fs */; };
 		37358247211D3FDC0042EDD3 /* gray.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37358246211D3FDC0042EDD3 /* gray.fs */; };
+		3735824B211D74160042EDD3 /* lightScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37358249211D74160042EDD3 /* lightScene.cpp */; };
+		3735824D211D74B90042EDD3 /* point_light.vs in Resources */ = {isa = PBXBuildFile; fileRef = 3735824C211D74B90042EDD3 /* point_light.vs */; };
+		3735824F211D74CD0042EDD3 /* point_light.fs in Resources */ = {isa = PBXBuildFile; fileRef = 3735824E211D74CD0042EDD3 /* point_light.fs */; };
 		374D87CF211B0C300043BE16 /* FrameBufferObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 374D87CD211B0C300043BE16 /* FrameBufferObject.cpp */; };
 		374D87D2211B150A0043BE16 /* fullscreenquad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 374D87D0211B150A0043BE16 /* fullscreenquad.cpp */; };
 		37503248210C4F4D00DCEA24 /* modeltest.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37503246210C4F4D00DCEA24 /* modeltest.fs */; };
@@ -178,6 +181,10 @@
 		37358242211D379A0042EDD3 /* fullscreenquad.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = fullscreenquad.vs; sourceTree = "<group>"; };
 		37358244211D397B0042EDD3 /* fullscreenquad.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = fullscreenquad.fs; sourceTree = "<group>"; };
 		37358246211D3FDC0042EDD3 /* gray.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = gray.fs; sourceTree = "<group>"; };
+		37358249211D74160042EDD3 /* lightScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lightScene.cpp; sourceTree = "<group>"; };
+		3735824A211D74160042EDD3 /* lightScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = lightScene.hpp; sourceTree = "<group>"; };
+		3735824C211D74B90042EDD3 /* point_light.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = point_light.vs; sourceTree = "<group>"; };
+		3735824E211D74CD0042EDD3 /* point_light.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = point_light.fs; sourceTree = "<group>"; };
 		374D87CD211B0C300043BE16 /* FrameBufferObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FrameBufferObject.cpp; sourceTree = "<group>"; };
 		374D87CE211B0C300043BE16 /* FrameBufferObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FrameBufferObject.hpp; sourceTree = "<group>"; };
 		374D87D0211B150A0043BE16 /* fullscreenquad.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fullscreenquad.cpp; sourceTree = "<group>"; };
@@ -448,8 +455,8 @@
 		37AD0605210822A3006D9121 /* reciprocal.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = reciprocal.hpp; sourceTree = "<group>"; };
 		37AD0606210822A3006D9121 /* projection.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = projection.inl; sourceTree = "<group>"; };
 		37AD0607210822A4006D9121 /* multiple.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = multiple.inl; sourceTree = "<group>"; };
-		37AD0686210822C2006D9121 /* scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scene.h; path = openGLES_MyApp/util/scene.h; sourceTree = SOURCE_ROOT; };
-		37AD0687210822C2006D9121 /* scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = scene.cpp; path = openGLES_MyApp/util/scene.cpp; sourceTree = SOURCE_ROOT; };
+		37AD0686210822C2006D9121 /* scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scene.h; path = openGLES_MyApp/util/scene/scene.h; sourceTree = SOURCE_ROOT; };
+		37AD0687210822C2006D9121 /* scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = scene.cpp; path = openGLES_MyApp/util/scene/scene.cpp; sourceTree = SOURCE_ROOT; };
 		37AD068921082355006D9121 /* ggl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ggl.h; sourceTree = "<group>"; };
 		37AD068A21082753006D9121 /* test.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = test.vs; sourceTree = "<group>"; };
 		37AD068C21082768006D9121 /* test.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = test.fs; sourceTree = "<group>"; };
@@ -467,17 +474,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37358248211D71F40042EDD3 /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				37AD0687210822C2006D9121 /* scene.cpp */,
+				37AD0686210822C2006D9121 /* scene.h */,
+				3735823B211C5C5A0042EDD3 /* shaderScene.cpp */,
+				3735823C211C5C5A0042EDD3 /* shaderScene.hpp */,
+				37358249211D74160042EDD3 /* lightScene.cpp */,
+				3735824A211D74160042EDD3 /* lightScene.hpp */,
+			);
+			path = scene;
+			sourceTree = "<group>";
+		};
 		374D87C9211AFBD00043BE16 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				37358248211D71F40042EDD3 /* scene */,
 				371EEF2D21088253004E119E /* vertexbuffer.cpp */,
 				371EEF2E21088253004E119E /* vertexbuffer.hpp */,
 				37AD068921082355006D9121 /* ggl.h */,
-				37AD0686210822C2006D9121 /* scene.h */,
-				37AD0687210822C2006D9121 /* scene.cpp */,
 				371EEF562109B1E5004E119E /* shader.cpp */,
-				3735823B211C5C5A0042EDD3 /* shaderScene.cpp */,
-				3735823C211C5C5A0042EDD3 /* shaderScene.hpp */,
 				371EEF552109B1E4004E119E /* shader.h */,
 				37AD05082108228C006D9121 /* utils.h */,
 				37AD05072108228C006D9121 /* utils.cpp */,
@@ -525,6 +542,8 @@
 				37358242211D379A0042EDD3 /* fullscreenquad.vs */,
 				37358244211D397B0042EDD3 /* fullscreenquad.fs */,
 				37358246211D3FDC0042EDD3 /* gray.fs */,
+				3735824C211D74B90042EDD3 /* point_light.vs */,
+				3735824E211D74CD0042EDD3 /* point_light.fs */,
 			);
 			path = mode;
 			sourceTree = "<group>";
@@ -940,6 +959,7 @@
 				37AD062F210822A4006D9121 /* type_mat4x3.inl in Resources */,
 				37AD0651210822A4006D9121 /* extend.inl in Resources */,
 				37AD0671210822A4006D9121 /* std_based_type.inl in Resources */,
+				3735824D211D74B90042EDD3 /* point_light.vs in Resources */,
 				37AD0677210822A4006D9121 /* extented_min_max.inl in Resources */,
 				376CF3A72112FD0300EF25B1 /* fsq.vs in Resources */,
 				37AD0674210822A4006D9121 /* matrix_operation.inl in Resources */,
@@ -1009,6 +1029,7 @@
 				37AD04F821081DCB006D9121 /* Assets.xcassets in Resources */,
 				37AD064F210822A4006D9121 /* log_base.inl in Resources */,
 				37AD0655210822A4006D9121 /* euler_angles.inl in Resources */,
+				3735824F211D74CD0042EDD3 /* point_light.fs in Resources */,
 				37AD063E210822A4006D9121 /* type_mat.inl in Resources */,
 				37AD064D210822A4006D9121 /* constants.inl in Resources */,
 				37AD062C210822A4006D9121 /* func_trigonometric.inl in Resources */,
@@ -1081,6 +1102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37AD04F321081DC8006D9121 /* ViewController.mm in Sources */,
+				3735824B211D74160042EDD3 /* lightScene.cpp in Sources */,
 				374D87D2211B150A0043BE16 /* fullscreenquad.cpp in Sources */,
 				371EEF2F21088253004E119E /* vertexbuffer.cpp in Sources */,
 				371EEF32210882CB004E119E /* ground.cpp in Sources */,

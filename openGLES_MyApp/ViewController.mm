@@ -10,6 +10,7 @@
 #include "utils.h"
 #include "scene.h"
 #include "shaderScene.hpp"
+#include "lightScene.hpp"
 unsigned char * LoadFileContent(const char*path,int&filesize){
     unsigned char*fileContent=nullptr;
     filesize=0;
@@ -53,16 +54,20 @@ float GetFrameTime(){
 }
 -(void)initScene
 {
-//    Init();
+////    Init();
+//    CGRect rect=[[UIScreen mainScreen] bounds];
+////    SetViewPortSize(rect.size.width,rect.size.height);
+//    InitShaderScene();
+//    SetViewPortSizeShaderScene(rect.size.width,rect.size.height);
+    InitLight();
     CGRect rect=[[UIScreen mainScreen] bounds];
-//    SetViewPortSize(rect.size.width,rect.size.height);
-    InitShaderScene();
-    SetViewPortSizeShaderScene(rect.size.width,rect.size.height);
+    SetViewPortSizeLight(rect.size.width,rect.size.height);
+    
 }
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
 //    Draw();
-    DrawShaderScene();
+    DrawLight();
 }
 
 - (void)didReceiveMemoryWarning {
