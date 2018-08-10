@@ -1,6 +1,8 @@
 #pragma once
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
+#include <OpenGLES/ES3/gl.h>
+#include <OpenGLES/ES3/glext.h>
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
@@ -9,5 +11,5 @@
 #include <vector>
 #include <functional>
 #include <map>
-#include "Glm/glm.hpp"
-#include "Glm/ext.hpp"
+#include "glm.hpp"
+#include "ext.hpp"

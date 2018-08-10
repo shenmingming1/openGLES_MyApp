@@ -3,9 +3,9 @@
 #include "shader.h"
 class Model {
 	VertexBuffer*mVertexBuffer;
-	Shader*mShader;
 public:
 	Model();
+    Shader*mShader;
 	glm::mat4 mModelMatrix;
 	void Init(const char*modelPath);
 	void SetTexture(const char*imagePath);

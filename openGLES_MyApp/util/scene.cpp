@@ -7,6 +7,7 @@
 #include "shader.h"
 #include "model.h"
 //#include "particlesystem.h"
+
 GLuint vbo,ebo,fsqVBO;
 GLuint program;
 GLuint texture;
@@ -20,6 +21,7 @@ Ground ground;
 Model model,niutou;
 glm::vec3 cameraPos(20.0f,20.0f,20.0f);
 SkyBox skybox;
+
 // FBO逻辑处理器，不实际存储东西
 void InitFBO(){
     GLint prevFBO;
@@ -85,7 +87,7 @@ void Init() {
     positionLocation = glGetAttribLocation(program, "position");
     textureLocation = glGetUniformLocation(program, "U_MainTexture");
     modelMatrixLocation = glGetUniformLocation(program, "ModelMatrix");
-//    modelMatrix =glm::scale(0.05f, 0.05f, 0.05f);
+    modelMatrix =glm::scale(0.5f, 0.5f, 0.5f);
     glDeleteShader(vsShader);
     glDeleteShader(fsShader);
     InitFBO();
@@ -199,10 +201,10 @@ void Draw() {
     glClearColor(0.1f, 0.4f, 0.5f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     
-//    skybox.Draw(cameraPos.x, cameraPos.y, cameraPos.z, viewMatrix, projectionMatrix);
-//    ground.Draw(viewMatrix, projectionMatrix);
-//    model.Draw(cameraPos.x, cameraPos.y, cameraPos.y, viewMatrix, projectionMatrix);
-//    niutou.Draw(cameraPos.x, cameraPos.y, cameraPos.z, viewMatrix, projectionMatrix);
+    skybox.Draw(cameraPos.x, cameraPos.y, cameraPos.z, viewMatrix, projectionMatrix);
+    ground.Draw(viewMatrix, projectionMatrix);
+    model.Draw(cameraPos.x, cameraPos.y, cameraPos.y, viewMatrix, projectionMatrix);
+    niutou.Draw(cameraPos.x, cameraPos.y, cameraPos.z, viewMatrix, projectionMatrix);
     glUseProgram(program);
     glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, glm::value_ptr(modelMatrix));
     glBindTexture(GL_TEXTURE_2D, colorBuffer);
